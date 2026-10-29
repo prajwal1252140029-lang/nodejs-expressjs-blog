@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+<section class="page-head"><div class="container">
+  <h1>About this project</h1>
+  <p class="lead">A home assignment for <%= site.subject %>.</p>
+</div></section>
+
+<section class="container section narrow">
+  <h2>Author</h2>
+  <p><%= site.author %>, <%= site.program %>, <%= site.institution %>.</p>
+
+  <h2>Purpose</h2>
+  <p>The assignment asks for a technical article on Node.js and Express.js and a working website built with them. This site is a functioning Express application: every page is served by a route, templates are rendered with EJS, and the sensor endpoints return JSON.</p>
+
+  <h2>What the project demonstrates</h2>
+  <ul>
+    <li>Routing with <code>app.get()</code> and route parameters</li>
+    <li>Reusable middleware (request logging, shared template values, security headers)</li>
+    <li>JSON responses and input validation on the API</li>
+    <li>A custom 404 page and centralised error handling</li>
+    <li>A configurable port through <code>process.env.PORT</code></li>
+  </ul>
+
+  <h2>Technology stack</h2>
+  <table>
+    <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
+    <tbody>
+      <tr><td>Runtime</td><td>Node.js (18 or newer)</td></tr>
+      <tr><td>Framework</td><td>Express.js 4</td></tr>
+      <tr><td>Templates</td><td>EJS</td></tr>
+      <tr><td>Front end</td><td>HTML5, CSS3, vanilla JavaScript</td></tr>
+      <tr><td>Security headers</td><td>Helmet</td></tr>
+    </tbody>
+  </table>
+
+  <h2>A note on the sensor data</h2>
+  <p class="callout">The temperature, pressure and flow values on this site are randomly generated sample data. No physical sensors are connected, and the values must not be treated as real measurements.</p>
+</section>
+<%- include('partials/footer') %>

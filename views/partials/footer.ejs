@@ -1,0 +1,25 @@
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>Project</h2>
+        <p><strong><%= site.author %></strong><br>
+        <%= site.program %><br>
+        <%= site.department %><br>
+        <%= site.institution %></p>
+        <p>Subject: <%= site.subject %></p>
+      </div>
+      <div>
+        <h2>References</h2>
+        <ul>
+          <% references.forEach(function (r) { %>
+            <li><a href="<%= r.url %>" target="_blank" rel="noopener noreferrer"><%= r.label %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+    <p class="container legal">Academic project for coursework. Sensor values shown on this site are simulated sample data.</p>
+  </footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+<section class="page-head"><div class="container">
+  <p class="eyebrow">Technical article &middot; <%= post.readTime %></p>
+  <h1><%= post.title %></h1>
+  <p class="byline">By <strong><%= site.author %></strong> &middot; <%= site.department %>, <%= site.institution %></p>
+  <p class="byline">Subject: <%= site.subject %></p>
+</div></section>
+
+<div class="container article-layout">
+  <aside class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      <% toc.forEach(function (t) { %><li><a href="#<%= t.id %>"><%= t.title %></a></li><% }); %>
+      <li><a href="#live-demo">Live API demo</a></li>
+    </ol>
+  </aside>
+
+  <article class="prose">
+    <div class="abstract">
+      <h2>Abstract</h2>
+      <p><%= post.abstract %></p>
+      <p><strong>Keywords:</strong> <%= post.keywords.join(', ') %></p>
+    </div>
+
+    <%- content %>
+
+    <h2 id="live-demo">Live API demo</h2>
+    <p>This page is served by the Express app described above. Choose a sensor and send a real HTTP request to its API. The readings are <strong>simulated sample data</strong>, not real measurements.</p>
+    <form id="demo-form" class="demo">
+      <label for="sensor-select">Endpoint</label>
+      <select id="sensor-select">
+        <option value="all">GET /api/sensors (all)</option>
+        <option value="temperature">GET /api/sensors/temperature</option>
+        <option value="pressure">GET /api/sensors/pressure</option>
+        <option value="flow">GET /api/sensors/flow</option>
+        <option value="humidity">GET /api/sensors/humidity (invalid, returns 400)</option>
+      </select>
+      <button class="btn primary" type="submit">Send request</button>
+    </form>
+    <pre class="demo-output" id="demo-output" aria-live="polite">Response will appear here.</pre>
+  </article>
+</div>
+<%- include('partials/footer') %>

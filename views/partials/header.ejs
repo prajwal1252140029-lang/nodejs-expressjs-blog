@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="<%= description %>">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/"><span class="brand-mark">JS</span><%= site.shortTitle %></a>
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+      <nav id="nav-links" class="nav-links" aria-label="Main">
+        <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">Home</a>
+        <a href="/blog" class="<%= currentPath.startsWith('/blog') ? 'active' : '' %>">Blog</a>
+        <a href="/about" class="<%= currentPath === '/about' ? 'active' : '' %>">About</a>
+        <a href="/api/sensors">Sensor API</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">

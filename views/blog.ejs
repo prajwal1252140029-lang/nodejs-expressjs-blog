@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+<section class="page-head"><div class="container">
+  <h1>Blog</h1>
+  <p class="lead">One in-depth article, plus quick links to its key topics.</p>
+</div></section>
+
+<section class="container section">
+  <h2>Featured article</h2>
+  <% posts.forEach(function (p) { %>
+    <article class="card featured">
+      <p class="eyebrow"><%= p.readTime %></p>
+      <h3><a href="/blog/<%= p.slug %>"><%= p.title %></a></h3>
+      <p><%= p.summary %></p>
+      <p class="tags"><% p.tags.forEach(function (t) { %><span class="tag"><%= t %></span><% }); %></p>
+      <a class="btn primary" href="/blog/<%= p.slug %>">Read full article</a>
+    </article>
+  <% }); %>
+</section>
+
+<section class="container section">
+  <h2>Jump to a topic</h2>
+  <div class="cards three">
+    <% topics.forEach(function (t) { %>
+      <a class="card link-card" href="/blog/<%= posts[0].slug %>#<%= t.anchor %>">
+        <h3><%= t.title %></h3>
+        <p><%= t.text %></p>
+      </a>
+    <% }); %>
+  </div>
+</section>
+<%- include('partials/footer') %>
